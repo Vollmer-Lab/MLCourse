@@ -1,12 +1,14 @@
 module MLCourse
 
 import Pkg
-using Requires, PrecompilePlutoCourse
+using Requires
 using Markdown, Base64
 
 include("notebooks.jl")
 
 function __init__()
+    #=
+
 PrecompilePlutoCourse.configure(@__MODULE__,
     start_notebook = pkgdir(@__MODULE__, "index.jl"),
     sysimage_path = pkgdir(@__MODULE__, "precompile", "mlcourse.so"),
@@ -14,6 +16,8 @@ PrecompilePlutoCourse.configure(@__MODULE__,
     packages = [:Pluto, :MLJ, :MLJLinearModels, :Distributions,
                 :MLCourse, :StatsPlots, :DataFrames, :MLJFlux]
 )
+=#
+
 
 @require Zygote="e88e6eb3-aa80-5325-afca-941959d7151f" begin
 using Zygote
